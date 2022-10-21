@@ -31,12 +31,12 @@ const Banner = ({ netflixOriginals }: BannerProps) => {
       </h1>
       <p className={styles.subTitle}>{movie?.overview}</p>
 
-      <div className='flex gap-x-3'>
-        <button className='bannerButton bg-white text-black'>
-          <FaPlay className='h-4 w-4 text-black md:h-7 md: md:w-7' />
+      <div className={styles.wrapper.buttons}>
+        <button className={styles.playButton}>
+          <FaPlay className={styles.icons.play} />
         </button>
-        <button className='bannerButton bg-[gray]/20'>
-          More info <InformationCircleIcon className='h-5 w-5 md:h-8 md:w-8' />
+        <button className={styles.infoButton}>
+          More info <InformationCircleIcon className={styles.icons.info} />
         </button>
       </div>
     </div>
