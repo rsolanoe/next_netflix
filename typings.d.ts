@@ -31,3 +31,14 @@ export interface Element {
     | 'Trailer'
     | 'Teaser'
 }
+
+type HomeProps = {
+  actionMovies: Movie[];
+  comedyMovies: Movie[];
+  documentaries: Movie[];
+  horrorMovies: Movie[];
+  netflixOriginals: Movie[];
+  romanceMovies: Movie[];
+  topRated: Movie[];
+  trendingNow: Movie[];
+};
