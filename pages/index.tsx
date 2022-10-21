@@ -56,12 +56,10 @@ const Home = ({
             movies={actionMovies}
           />
           {/* My List */}
-          {/* {list.length > 0 && (
-            <Row
-              title='My List'
-              movies={list}
-            />
-          )} */}
+          <Row
+            title='Comedies'
+            movies={comedyMovies}
+          />
 
           <Row
             title='Comedies'
