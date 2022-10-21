@@ -20,8 +20,9 @@
     "target": "es2018",
     "pretty": true,
     "paths": {
-      "component/*": ["./components/*"]
+      "components/*": ["./components/*"]
     },
+    "noImplicitReturns": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
