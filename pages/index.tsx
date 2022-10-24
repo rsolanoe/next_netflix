@@ -1,22 +1,12 @@
-import { GetServerSideProps } from 'next';
-import requests from 'utils/requests';
 import Head from 'next/head';
-import Header from 'component/Header';
-import Banner from 'component/Banner';
-import { Movie } from 'typings';
-import Row from 'component/Row';
+import { GetServerSideProps } from 'next';
 
-type HomeProps = {
-  actionMovies: Movie[];
-  comedyMovies: Movie[];
-  documentaries: Movie[];
-  horrorMovies: Movie[];
-  netflixOriginals: Movie[];
-  romanceMovies: Movie[];
-  topRated: Movie[];
-  trendingNow: Movie[];
-  data: any;
-};
+import Header from 'components/Header';
+import Banner from 'components/Banner';
+import Row from 'components/Row';
+
+import requests from 'utils/requests';
+import { HomeProps } from 'typings';
 
 const Home = ({
   actionMovies,
@@ -28,6 +18,12 @@ const Home = ({
   topRated,
   trendingNow,
 }: HomeProps) => {
+  const movieA = [
+    { title: 'Trending Now', movies: trendingNow },
+    { title: 'Top Rated', movies: topRated },
+    { title: 'Action Thrillers', movies: actionMovies },
+  ];
+
   return (
     <div className='relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]'>
       <Head>
@@ -42,8 +38,15 @@ const Home = ({
 
       <main className='relative  pl-4 pb-24 lg:gap-y-24 lg:pl-16'>
         <Banner netflixOriginals={netflixOriginals} />
-        <section>
-          <Row
+        <section className='md:space-y-24'>
+          {movieA.map((movie) => (
+            <Row
+              key={movie.title}
+              title={movie.title}
+              movies={movie.movies}
+            />
+          ))}
+          {/* <Row
             title='Trending Now'
             movies={trendingNow}
           />
@@ -54,14 +57,8 @@ const Home = ({
           <Row
             title='Action Thrillers'
             movies={actionMovies}
-          />
+          /> */}
           {/* My List */}
-          {/* {list.length > 0 && (
-            <Row
-              title='My List'
-              movies={list}
-            />
-          )} */}
 
           <Row
             title='Comedies'
